@@ -7,12 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
 int main(int argc, char *argv[]) {
     
     @autoreleasepool {
-        int retVal = UIApplicationMain(argc, argv, nil, @"AppController");
+        int retVal;
+        NSString *classString = NSStringFromClass([AppController class]);
+        @try {
+            UIApplicationMain(argc, argv, nil, classString);
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Exception - %@",[exception description]);
+            exit(EXIT_FAILURE);
+        }
+        
         return retVal;
     }
 }
