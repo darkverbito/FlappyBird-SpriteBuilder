@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     @autoreleasepool {
         int retVal;
         @try {
-            UIApplicationMain(argc, argv, nil, @"AppController");
+            UIApplicationMain(argc, argv, nil, NSStringFromClass([AppController class]));
         }
         @catch (NSException *exception) {
             NSLog(@"Exception - %@",[exception description]);
